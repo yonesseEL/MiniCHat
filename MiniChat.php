@@ -21,7 +21,7 @@
             if(!empty($_POST['pseudo']) AND !empty($_POST['comment'])){
                 $dbb->exec("INSERT INTO users(pseudo,comment) VALUE ('$ps','$ms')");
             }
-            $reponse=$dbb->query('SELECT * FROM users');
+            $reponse=$dbb->query('SELECT * FROM users ORDER BY id DESC LIMIT 0, 10'');
             while($donnee = $reponse->fetch()){
               echo '<p>'.'<label style="font-weight: bold";>'.$donnee['pseudo'].'</label>'.' : '.$donnee['comment'].'</p>';
             }
